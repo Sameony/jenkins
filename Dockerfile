@@ -1,5 +1,5 @@
 # Docker Build Stage
-FROM maven:3-jdk-11-alpine AS build
+FROM openjdk:11
 
 
 # Copy folder in docker
@@ -10,7 +10,7 @@ RUN mvn clean install
 
 
 # Run spring boot in Docker
-FROM openjdk:11-jdk-alpine
+FROM openjdk:11
 
 COPY --from=build /opt/app/target/*.jar app.jar
 
