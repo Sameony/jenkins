@@ -4,8 +4,8 @@ node {
 
 try{
 	environment {
-       PATH = "$PATH:/usr/bin"
-    }
+    PATH = "/hot/new/bin:${env.PATH}"
+  	}
      notifyBuild('STARTED')
      stage('Github Repo clone') {
         // Get some code from a GitHub repository
