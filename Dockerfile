@@ -4,7 +4,8 @@ FROM openjdk:11 AS build
 WORKDIR /opt/app
 
 COPY ./ /opt/app
-RUN apt-get update && apt-get install -y maven
+RUN apt-get update
+RUN apt-get install -y maven
 RUN mvn clean install
 
 # Run Stage
