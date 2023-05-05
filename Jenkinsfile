@@ -15,6 +15,7 @@ try{
       }
 
       stage('Deploy docker'){
+      		  sh docker run --rm -it alpine date
               echo "Docker Image Tag Name: ${dockerImageTag}"
               sh "docker stop springboot-deploy || true && docker rm springboot-deploy || true"
               sh "docker run --name springboot-deploy -d -p 8069:8069 springboot-deploy:${env.BUILD_NUMBER}"
