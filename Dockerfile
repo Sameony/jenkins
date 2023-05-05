@@ -1,15 +1,13 @@
-# Docker Build Stage
-FROM openjdk:11
+# Build Stage
+FROM openjdk:11 AS build
 
-
-# Copy folder in docker
 WORKDIR /opt/app
 
 COPY ./ /opt/app
+RUN apt-get update && apt-get install -y maven
 RUN mvn clean install
 
-
-# Run spring boot in Docker
+# Run Stage
 FROM openjdk:11
 
 COPY --from=build /opt/app/target/*.jar app.jar
