@@ -6,9 +6,9 @@ try{
      notifyBuild('STARTED')
      stage('Github Repo clone') {
         // Get some code from a GitHub repository
-        git url: 'https://gitlab.com/gpranataAsyst/springboot-demodeploy.git',
-            credentialsId: 'springdeploy-user',
-            branch: 'main'
+        git url: 'https://github.com/Sameony/jenkins',
+            credentialsId: 'github-id',
+            branch: 'jenkins-docker'
      }
       stage('Build docker') {
              dockerImage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
