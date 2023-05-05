@@ -3,9 +3,7 @@ node {
     def dockerImageTag = "springboot-deploy${env.BUILD_NUMBER}"
 
 try{
-	environment {
-    PATH = "/hot/new/bin:${env.PATH}"
-  	}
+	
      notifyBuild('STARTED')
      stage('Github Repo clone') {
         // Get some code from a GitHub repository
