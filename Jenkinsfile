@@ -11,8 +11,8 @@ try{
             branch: 'jenkins-docker'
      }
       stage('Build docker') {
-             bat "docker build springboot-deploy"
-             bat "docker push springboot-deploy"
+             bat "docker build "springboot-deploy""
+             bat "docker push "springboot-deploy""
       }
 
       stage('Deploy docker'){
