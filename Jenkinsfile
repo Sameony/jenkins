@@ -12,14 +12,14 @@ try{
             branch: 'jenkins-docker'
      }
       stage('Build docker') {
-             dockerimage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
-             bat "docker push ${dockerimage.toString()}"
+             bat docker build("springboot-deploy:${env.BUILD_NUMBER}")
+             bat docker push("springboot-deploy:${env.BUILD_NUMBER}")
       }
 
       stage('Deploy docker'){
               echo "Docker Image Tag Name: ${dockerimagetag}"
               bat "docker stop springboot-deploy || true && docker rm springboot-deploy || true"
-              bat "docker run --name springboot-deploy -d -p 8069:8069 ${dockerimage.toString()}"
+              bat "docker run --name springboot-deploy -d -p 8069:8069 springboot-deploy:${env.BUILD_NUMBER}"
       }
 }catch(e){
     currentBuild.result = "FAILED"
