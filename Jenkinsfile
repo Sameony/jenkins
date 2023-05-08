@@ -17,7 +17,7 @@ try{
 
       stage('Deploy docker'){
               echo "Docker Image Tag Name: ${dockerimagetag}"
-              bat "docker run --name springboot-deploy -d -p 8069:8069 ${dockerimage.toString()}"
+              bat "docker run --name springboot-deploy -d -p 8069:8069 springboot-deploy"
       }
 }catch(e){
     currentBuild.result = "FAILED"
