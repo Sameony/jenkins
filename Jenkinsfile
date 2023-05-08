@@ -12,8 +12,8 @@ try{
             branch: 'jenkins-docker'
      }
       stage('Build docker') {
-             dockerImage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
-             bat "docker push ${dockerImage.toString()}"
+             dockerimage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
+             bat "docker push ${dockerimage.toString()}"
       }
 
       stage('Deploy docker'){
