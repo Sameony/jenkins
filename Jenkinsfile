@@ -17,7 +17,6 @@ try{
 
       stage('Deploy docker'){
               echo "Docker Image Tag Name: ${dockerimagetag}"
-              bat "docker stop springboot-deploy || true && docker rm springboot-deploy || true"
               bat "docker run --name springboot-deploy -d -p 8069:8069 ${dockerimage.toString()}"
       }
 }catch(e){
