@@ -13,7 +13,6 @@ try{
      }
       stage('Build docker') {
              dockerimage = docker.build("springboot-deploy")
-             bat "docker push ${dockerimage}"
       }
 
       stage('Deploy docker'){
